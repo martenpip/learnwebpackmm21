@@ -1,5 +1,5 @@
 export default {
     hello(){
-        console.log('hello module');
+        console.log('hello');
     }
 }
