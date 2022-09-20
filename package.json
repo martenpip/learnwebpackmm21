@@ -21,13 +21,21 @@
   },
   "homepage": "https://github.com/Kasparsu/learnwebpackmm21#readme",
   "dependencies": {
+    "cdm": "^0.3.0",
+    "cdn": "^1.1.1",
+    "css": "^3.0.0",
+    "purge": "^1.0.0",
     "style-loader": "^3.3.1",
+    "twig-loader": "^0.5.5",
     "webpack": "^5.74.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "bulma": "^0.9.4",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "purgecss-webpack-plugin": "^5.0.0",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
     "webpack-cli": "^4.10.0"

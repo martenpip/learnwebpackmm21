@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}No title{% endblock %}</title>
 <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
 <body>
-    <ul id="li">https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran</ul>
-    <ul id="li">Item 1</ul>
-    <ul id="li">Item 2</ul>
-    <ul id="li">Item 3</ul>
-    <ul id="li">Item 4</ul>
+    {% include './nav.twig' %}
+{% block content %}
+
+    {% endblock %}
 </body>
 </html>
