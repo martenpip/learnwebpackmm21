@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const PurgecssPlugin = require('purgecss-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
+
 const path = require('path');
 const glob = require('glob');
 
@@ -45,6 +46,10 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
+        test: /\.vue$/i,
+        use: ["vue-loader"],
+      },
+      {
         test: /\.twig$/,
         use: {
           loader: 'twig-loader',
@@ -55,10 +60,15 @@ module.exports = {
     ],
   },
   plugins: [
-    ...htmlPlugins,
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
     new MiniCssExtractPlugin(),
-    new PurgecssPlugin.PurgeCSSPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
-    })
+    new VueLoaderPlugin(),
   ],
+  resolve: {
+    alias: {
+      vue:'vue/dist/vue.esm-bundler.js'
+    }
+  }
 };
