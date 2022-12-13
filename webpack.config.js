@@ -1,26 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { VueLoaderPlugin } = require('vue-loader');
-
 const path = require('path');
 const glob = require('glob');
-
-
-let htmlPlugins = [];
-
-let files = glob.sync('./src/views/*.twig');
-files.forEach(file => {
-  let htmlPlugin = new HtmlWebpackPlugin({
-    filename: file.split('/').at(-1).replace('twig','html'),
-    template: file,
-  });
-  htmlPlugins.push(htmlPlugin);
-});
-
-const PATHS = {
-  src: path.join(__dirname, 'src')
-}
-
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   entry: './src/index.js',
@@ -47,13 +29,14 @@ module.exports = {
       },
       {
         test: /\.vue$/i,
-        use: ["vue-loader"],
+        loader: 'vue-loader'
       },
       {
         test: /\.twig$/,
         use: {
           loader: 'twig-loader',
           options: {
+              // See options section below
           },
         }
       }
